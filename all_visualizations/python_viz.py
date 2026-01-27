@@ -1,19 +1,28 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 
-# Referred to https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html for reading the csv, since it's been some time
+# Referred to https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html for reading the csv, since it's been some time (mainly regarding the additional params, which I ended up keeping default)
 rawPenglingsDf = pd.read_csv("C:/Users/klaud/WebstormProjects/klaudio-fusha-a2-datavis-5ways/a2-DataVis-5ways/penglings.csv")
 print(rawPenglingsDf)
 
-rawPenglingsDf = rawPenglingsDf.dropna()
-print(rawPenglingsDf)
+rawPenglingsFilteredDf = rawPenglingsDf.dropna()
+print(rawPenglingsFilteredDf)
 
-# Referred to https://www.w3schools.com/python/matplotlib_scatter.asp for making sure I was properly using plt.scatter
-flipperLength = rawPenglingsDf["flipper_length_mm"]
-bodyMass = rawPenglingsDf["body_mass_g"]
-plt.scatter(flipperLength, bodyMass)
+onlyAdelieDf = rawPenglingsFilteredDf[rawPenglingsFilteredDf["species"] == "Adelie"]
+onlyChinstrapDf = rawPenglingsFilteredDf[rawPenglingsFilteredDf["species"] == "Chinstrap"]
+onlyGentooDf = rawPenglingsFilteredDf[rawPenglingsFilteredDf["species"] == "Gentoo"]
+
+print(onlyAdelieDf)
+print(onlyChinstrapDf)
+print(onlyGentooDf)
+
+# Referred to https://www.w3schools.com/python/matplotlib_scatter.asp for making sure I was properly using plt.scatter (mainly in terms of data input)
+# Also referred to https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html for a refresher on all the params/attributes of plt.scatter
+plt.scatter(onlyAdelieDf["flipper_length_mm"], onlyAdelieDf["body_mass_g"], c = "orange", alpha = 0.8)
+plt.scatter(onlyChinstrapDf["flipper_length_mm"], onlyChinstrapDf["body_mass_g"], c = "#ba55d3", alpha = 0.8)
+plt.scatter(onlyGentooDf["flipper_length_mm"], onlyGentooDf["body_mass_g"], c = "teal", alpha = 0.8)
 plt.xlabel("Flipper Length (mm)")
 plt.ylabel("Body Mass (g)")
 plt.show()
 
-# Note to self: Will color-code data point by species later, and will change point size based on bill length
+# Note to self: Will change point size based on bill length
