@@ -24,5 +24,3 @@ plt.scatter(onlyGentooDf["flipper_length_mm"], onlyGentooDf["body_mass_g"], s = 
 plt.xlabel("Flipper Length (mm)")
 plt.ylabel("Body Mass (g)")
 plt.show()
-
-# Note to self: Will change point size based on bill length
