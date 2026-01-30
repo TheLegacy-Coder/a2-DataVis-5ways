@@ -8,6 +8,10 @@ print(rawPenglingsDf)
 rawPenglingsFilteredDf = rawPenglingsDf.dropna()
 print(rawPenglingsFilteredDf)
 
+# Referred to https://www.geeksforgeeks.org/python/normalize-a-column-in-pandas/ for determining which type of scaling to use for the bill length (went with min-max scaling, but multiplied the column values by a large number to amplify size differences) 
+rawPenglingsFilteredDf["bill_length_mm"] = (rawPenglingsFilteredDf["bill_length_mm"] - rawPenglingsFilteredDf["bill_length_mm"].min()) / (rawPenglingsFilteredDf["bill_length_mm"].max() - rawPenglingsFilteredDf["bill_length_mm"].min()) * 200
+print(rawPenglingsFilteredDf)
+
 onlyAdelieDf = rawPenglingsFilteredDf[rawPenglingsFilteredDf["species"] == "Adelie"]
 onlyChinstrapDf = rawPenglingsFilteredDf[rawPenglingsFilteredDf["species"] == "Chinstrap"]
 onlyGentooDf = rawPenglingsFilteredDf[rawPenglingsFilteredDf["species"] == "Gentoo"]
