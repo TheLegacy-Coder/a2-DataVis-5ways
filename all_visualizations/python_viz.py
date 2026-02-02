@@ -28,3 +28,5 @@ plt.scatter(onlyGentooDf["flipper_length_mm"], onlyGentooDf["body_mass_g"], s = 
 plt.xlabel("Flipper Length (mm)")
 plt.ylabel("Body Mass (g)")
 plt.show()
+
+# I will add mouseover functionality for seeing details about a specific point
