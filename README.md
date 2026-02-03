@@ -25,6 +25,7 @@ Python + Matplotlib made the visualization relatively easy to recreate, since I'
 - https://www.geeksforgeeks.org/python/normalize-a-column-in-pandas/
 - https://www.w3schools.com/python/matplotlib_scatter.asp
 - https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html
+- https://www.geeksforgeeks.org/python/how-to-add-a-legend-to-a-scatter-plot-in-matplotlib/
 
 
 # R + ggplot2
