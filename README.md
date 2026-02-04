@@ -5,6 +5,8 @@ Klaudio Fusha - Assignment 2 - Data Visualization, 5 Ways
 
 ![kf_js_d3_viz](img/Klaudio_Fusha_JS_d3_Viz.png)
 
+![kf_js_d3_viz_interactivity](img/Klaudio_Fusha_JS_d3_Viz_Interactivity.png)
+
 JS + d3 made recreating the visualization somewhat difficult, since it's been a while from the last time I've used d3 for anything of this caliber (past internship 2 years ago). I needed to refer to various resources to get started, make use of certain functions, etc. Granted, it became simple to customize elements as time went on. I definitely see JS + d3 being useful in cases where a lot of customizability is needed. Compared to libraries in other languages (such as matplotlib) or even GUI programs (such as Excel or PowerBI), there is a lot more you can play around with simply due to the nature of d3, even if it is a bit more complex. Regarding hacks or data manipulation, I filtered the data by preserving only the objects where the flipper length was not NA and the body mass was above 2500 grams. The latter was mainly to ensure that points were not placed/rendered below the x-axis. I also manually scaled the bill length by dividing values by 7 in order to size the points.
 
 ### Resources referenced in code:
@@ -12,6 +14,7 @@ JS + d3 made recreating the visualization somewhat difficult, since it's been a 
 - https://d3-graph-gallery.com/graph/custom_axis.html#axistitles
 - https://d3js.org/d3-scale/ordinal
 - http://www.d3noob.org/2014/02/styles-in-d3js.html
+- https://d3-graph-gallery.com/graph/interactivity_tooltip.html
 
 
 # Python + Matplotlib
@@ -67,8 +70,7 @@ PowerBI made recreating the visualization relatively easy. I loaded in a copy of
 - Called then() on d3.csv() to deal with asynchronicity issues with the JS + d3 logic (specifically when it came to plotting the data points).
 - Created a function within then() to filter the data by preserving only the objects where the flipper length was not NA and the body mass was above 2500 grams (so points were not placed below the x-axis). Still within this created function, the filtered data was then passed into another function for plotting the data.
 - Made use of min-max normalization in order to normalize the bill length, which helped in sizing the points of the visualization recreations (specifically Python + Matplotlib, Excel, and PowerBI).
-
-**I plan on making JS + d3 and Python + Matplotlib visualizations interactive
+- For the JS + d3 visualization, added interactivity that allows the user to hover over any given point and see information about it be displayed right below the chart in a pane. Specifically, the flipper length, body mass, bill length, and species are shown.
 
 ### Design Achievements
 - Was able to replicate the original visualization almost perfectly across all the different tools/libraries. I made sure to preserve the species color-coding, point sizing, and overall format of the graph (axes ticks and labels, scales, etc.) as much as possible.

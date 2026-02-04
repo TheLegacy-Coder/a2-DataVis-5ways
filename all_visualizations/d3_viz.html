@@ -9,16 +9,18 @@
     const svg = d3.select("#container")
         .append("svg")
             .attr("width", 800)
-            .attr("height", 800)
+            .attr("height", 600)
         .append("g")
             .attr("transform", "translate(100, 100)");
 
     // Filtered the data by preserving only the objects where the flipper length was not NA and the body mass was above 2500 grams (so points were not placed below the x-axis)
     // Also called the plotData function within the d3 function
-    // Note: Debugged with Prof. Harrison's assistance
+    // Note: Debugged with Prof. Harrison's assistance (he also suggested and helped with using the filter function)
     d3.csv("https://raw.githubusercontent.com/TheLegacy-Coder/a2-DataVis-5ways/refs/heads/main/penglings.csv").then(function(scatterData) {
             console.log(scatterData);
-            const filteredData = scatterData.filter(function(singleDataObject) {return singleDataObject.flipper_length_mm != "NA" && singleDataObject.body_mass_g > 2500});
+            const filteredData = scatterData.filter(function(singleDataObject) {
+                return singleDataObject.flipper_length_mm != "NA" && singleDataObject.body_mass_g > 2500;
+            });
             console.log(filteredData);
             plotData(filteredData);
     });
@@ -63,15 +65,40 @@
             .data(scatterData)
             .enter()
             .append("circle")
-                .attr("cx", function(singleDataObject) {return xAxis(singleDataObject.flipper_length_mm)})
-                .attr("cy", function(singleDataObject) {return yAxis(singleDataObject.body_mass_g)})
-                .attr("r", function(singleDataObject) {
-                    return singleDataObject.bill_length_mm / 7
+                .attr("cx", function(singleDataObject) {
+                    return xAxis(singleDataObject.flipper_length_mm);
                 })
-                .style("fill", function(singleDataObject) {return speciesColorCodes(singleDataObject.species)})
+                .attr("cy", function(singleDataObject) {
+                    return yAxis(singleDataObject.body_mass_g);
+                })
+                .attr("r", function(singleDataObject) {
+                    return singleDataObject.bill_length_mm / 6;
+                })
+                .style("fill", function(singleDataObject) {
+                    return speciesColorCodes(singleDataObject.species);
+                })
                 .style("opacity", 0.8);
 
-        // I will add mouseover functionality for seeing details about a specific point
+        // Referred to https://d3-graph-gallery.com/graph/interactivity_tooltip.html for adding an info pane for the data points, as well as the mouseover and mouseout functionality
+        const pointInfoPane  = d3.select("#container")
+            .append("div")
+                .style("visibility", "hidden");
+        
+        d3.selectAll("circle")
+            .on("mouseover", function(singleMouseEvent, singleDataObject) {
+                pointInfoPane
+                    .style("visibility", "visible")
+                    .text("Flipper length in mm: " + singleDataObject.flipper_length_mm + 
+                    ", Body mass in g: " + singleDataObject.body_mass_g + 
+                    ", Bill length in mm: " + singleDataObject.bill_length_mm + 
+                    ", Species: " + singleDataObject.species);
+                console.log("Hovering");
+            })
+            .on("mouseout", function() {
+                pointInfoPane
+                    .style("visibility", "hidden");
+                console.log("Not hovering");
+            });
     };
 
 </script>
