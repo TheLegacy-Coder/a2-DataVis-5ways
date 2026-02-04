@@ -30,5 +30,3 @@ plt.xlabel("Flipper Length (mm)")
 plt.ylabel("Body Mass (g)")
 plt.legend()
 plt.show()
-
-# I will add mouseover functionality for seeing details about a specific point
