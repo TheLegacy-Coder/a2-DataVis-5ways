@@ -75,5 +75,5 @@ PowerBI made recreating the visualization relatively easy. I loaded in a copy of
 ### Design Achievements
 - Was able to replicate the original visualization almost perfectly across all the different tools/libraries. I made sure to preserve the species color-coding, point sizing, and overall format of the graph (axes ticks and labels, scales, etc.) as much as possible.
 - Included legends for most of the visualizations (excluding the JS and d3 implementation) to make it easier to interpret the color coding of the points based on species. Even though the JS and d3 implementation does not have a dedicated legend, the user can still pick up on what the coloring means via the interactivity feature (hovering over points and seeing information about them).
-- Included backgrounds for R + ggplot2, Excel, and PowerBI visualizations.
+- Included background grids for R + ggplot2, Excel, and PowerBI visualizations.
 - For the JS + d3 visualization, as part of the interactivity functionality, made sure that the point information pane was placed below the visualization instead of being adjacent to any given hovered point. This way, the information would not cover any other points, and the user would be able to see the entire visualization.
