@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 # Referred to https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html for reading the csv, since it's been some time (mainly regarding the additional params, which I ended up keeping default)
-rawPenglingsDf = pd.read_csv("C:/Users/klaud/WebstormProjects/klaudio-fusha-a2-datavis-5ways/a2-DataVis-5ways/penglings.csv")
+rawPenglingsDf = pd.read_csv("penglings.csv")
 print(rawPenglingsDf)
 
 rawPenglingsFilteredDf = rawPenglingsDf.dropna()

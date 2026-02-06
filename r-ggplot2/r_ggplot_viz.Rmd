@@ -13,7 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r}
 # Referred to https://www.geeksforgeeks.org/r-language/read-contents-of-a-csv-file-in-r-programming-read-csv-function/ for reading in a CSV
-penglingsData = read.csv("C:/Users/klaud/WebstormProjects/klaudio-fusha-a2-datavis-5ways/a2-DataVis-5ways/penglings.csv")
+penglingsData = read.csv("penglings.csv")
 
 head(penglingsData)
 ```
